@@ -1,11 +1,11 @@
-<h1 align="center">markshust/docker-magento</h1>
+<h1 align="center">itnavigate/docker-magento</h1>
 
 <div align="center">
   <p>Mark Shust's Docker Configuration for Magento</p>
   <img src="https://img.shields.io/badge/magento-2.X-brightgreen.svg?logo=magento&longCache=true" alt="Supported Magento Versions" />
   <a href="https://hub.docker.com/r/markoshust/magento-php/" target="_blank"><img src="https://img.shields.io/docker/pulls/markoshust/magento-php.svg?label=php%20docker%20pulls" alt="Docker Hub Pulls - PHP" /></a>
   <a href="https://hub.docker.com/r/markoshust/magento-nginx/" target="_blank"><img src="https://img.shields.io/docker/pulls/markoshust/magento-nginx.svg?label=nginx%20docker%20pulls" alt="Docker Hub Pulls - Nginx" /></a>
-  <a href="https://github.com/markshust/docker-magento/graphs/commit-activity" target="_blank"><img src="https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg" alt="Maintained - Yes" /></a>
+  <a href="https://github.com/itnavigate/docker-magento/graphs/commit-activity" target="_blank"><img src="https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg" alt="Maintained - Yes" /></a>
   <img src="https://img.shields.io/badge/apple%20silicon%20support-yes-brightgreen" alt="Apple Silicon Support" />
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
 </div>
@@ -132,7 +132,7 @@ Folders:
 - `images`: Docker images for nginx and php
 - `compose`: sample setups with Docker Compose
 
-> The Magento 1 version of this development environment has been deprecated and is no longer supported. PHP 5 was used as it's base, and that version has reached end-of-life. If you still wish to use this setup, please reference [compose/magento-1 on tag 20.1.1](https://github.com/markshust/docker-magento/tree/20.1.1/compose/magento-1), but please be aware these images are no longer maintained.
+> The Magento 1 version of this development environment has been deprecated and is no longer supported. PHP 5 was used as it's base, and that version has reached end-of-life. If you still wish to use this setup, please reference [compose/magento-1 on tag 20.1.1](https://github.com/itnavigate/docker-magento/tree/20.1.1/compose/magento-1), but please be aware these images are no longer maintained.
 
 ## Prerequisites
 
@@ -150,7 +150,7 @@ mkdir -p ~/Sites/magento
 cd $_
 
 # Run this automated one-liner from the directory you want to install your project.
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- magento.test 2.4.7 community
+curl -s https://raw.githubusercontent.com/itnavigate/docker-magento/master/lib/onelinesetup | bash -s -- magento.test 2.4.7 community
 ```
 
 The `magento.test` above defines the hostname to use, and the `2.4.7` defines the Magento version to install. Note that since we need a write to `/etc/hosts` for DNS resolution, you will be prompted for your system password during setup.
@@ -178,7 +178,7 @@ mkdir -p ~/Sites/magento
 cd $_
 
 # Download the Docker Compose template:
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/template | bash
+curl -s https://raw.githubusercontent.com/itnavigate/docker-magento/master/lib/template | bash
 
 # Download the version of Magento you want to use with:
 bin/download 2.4.7 community
@@ -218,7 +218,7 @@ mkdir -p ~/Sites/magento
 cd $_
 
 # Download the Docker Compose template:
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/template | bash
+curl -s https://raw.githubusercontent.com/itnavigate/docker-magento/master/lib/template | bash
 
 # Take a backup of your existing database:
 bin/mysqldump > ~/Sites/existing/magento.sql
@@ -254,8 +254,8 @@ open https://magento.test
 
 ### Elasticsearch vs OpenSearch
 OpenSearch is set as the default search engine when setting up this project. Follow the instructions below if you want to use Elasticsearch instead:
-1. Comment out or remove the `opensearch` container in both the [`compose.yaml`](https://github.com/markshust/docker-magento/blob/master/compose/compose.yaml#L69-L84) and [`compose.healthcheck.yaml`](https://github.com/markshust/docker-magento/blob/master/compose/compose.healthcheck.yaml#L36-L41) files
-2. Uncomment the `elasticsearch` container in both the [`compose.yaml`](https://github.com/markshust/docker-magento/blob/master/compose/compose.yaml#L86-L106) and [`compose.healthcheck.yaml`](https://github.com/markshust/docker-magento/blob/master/compose/compose.healthcheck.yaml#L43-L48) files
+1. Comment out or remove the `opensearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.yaml#L69-L84) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.healthcheck.yaml#L36-L41) files
+2. Uncomment the `elasticsearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.yaml#L86-L106) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.healthcheck.yaml#L43-L48) files
 3. Update the `bin/setup-install` command to use the Elasticsearch ratther than OpenSearch. Change:
 
 ```
@@ -451,13 +451,13 @@ PhpMyAdmin is built into the `compose.dev.yaml` file. Simply open `http://localh
 
 Install and enable the PHP Debug extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
-Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/markshust/docker-magento/blame/master/compose/.vscode/launch.json) file.
+Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/master/compose/.vscode/launch.json) file.
 
 ### Xdebug & VS Code in a WSL2 environment
 
 Install and enable the PHP Debug extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
-Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/markshust/docker-magento/blame/master/compose/.vscode/launch.json) file.
+Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/master/compose/.vscode/launch.json) file.
 
 1. In VS Code, make sure that it's running in a WSL window, rather than in the default window.
 2. Install the [`PHP Debug`](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) extension on VS Code.
@@ -757,7 +757,7 @@ Additional information of how to work with SPX is available at https://www.youtu
 
 ## Known Issues
 
-There are currently no large known issues or workarounds needed to use docker-magento with your Magento project. If you find any, please [report them](https://github.com/markshust/docker-magento/issues)!
+There are currently no large known issues or workarounds needed to use docker-magento with your Magento project. If you find any, please [report them](https://github.com/itnavigate/docker-magento/issues)!
 
 ## Credits
 
@@ -773,9 +773,9 @@ My name is Mark Shust and I'm the creator of this repo. I'm a <a href="https://w
 
 - <a href="https://m.academy/courses" target="_blank">🖥️ See my Magento lessons & courses</a>
 - <a href="https://m.academy/articles" target="_blank">📖 Read my technical articles</a>
-- <a href="https://youtube.com/markshust" target="_blank">🎥 Watch my YouTube videos</a>
-- <a href="https://www.linkedin.com/in/MarkShust/" target="_blank">🔗 Connect on LinkedIn</a>
-- <a href="https://twitter.com/MarkShust" target="_blank">🐦 Follow me on X</a>
+- <a href="https://youtube.com/itnavigate" target="_blank">🎥 Watch my YouTube videos</a>
+- <a href="https://www.linkedin.com/in/itnavigate/" target="_blank">🔗 Connect on LinkedIn</a>
+- <a href="https://twitter.com/itnavigate" target="_blank">🐦 Follow me on X</a>
 - <a href="mailto:mark@m.academy">💌 Contact me</a>
 
 ## License
