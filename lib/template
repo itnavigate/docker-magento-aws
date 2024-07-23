@@ -8,7 +8,7 @@ fi
 git init -qqq
 git remote add origin https://github.com/itnavigate/docker-magento
 git fetch origin -qqq
-git checkout origin/master -- compose
+git checkout origin/aws -- compose
 
 mv compose/* ./
 mv compose/.gitignore ./

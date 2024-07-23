@@ -254,8 +254,8 @@ open https://magento.test
 
 ### Elasticsearch vs OpenSearch
 OpenSearch is set as the default search engine when setting up this project. Follow the instructions below if you want to use Elasticsearch instead:
-1. Comment out or remove the `opensearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.yaml#L69-L84) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.healthcheck.yaml#L36-L41) files
-2. Uncomment the `elasticsearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.yaml#L86-L106) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/master/compose/compose.healthcheck.yaml#L43-L48) files
+1. Comment out or remove the `opensearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/aws/compose/compose.yaml#L69-L84) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/aws/compose/compose.healthcheck.yaml#L36-L41) files
+2. Uncomment the `elasticsearch` container in both the [`compose.yaml`](https://github.com/itnavigate/docker-magento/blob/aws/compose/compose.yaml#L86-L106) and [`compose.healthcheck.yaml`](https://github.com/itnavigate/docker-magento/blob/aws/compose/compose.healthcheck.yaml#L43-L48) files
 3. Update the `bin/setup-install` command to use the Elasticsearch ratther than OpenSearch. Change:
 
 ```
@@ -338,8 +338,8 @@ It is recommended to keep your root docker config files in one repository, and y
 - `bin/setup-grunt`: Install and configure Grunt JavaScript task runner to compile .less files
 - `bin/setup-install`: Automates the installation process for a Magento instance.
 - `bin/setup-integration-tests`: Script to set up integration tests.
-- `bin/setup-pwa-studio`: (BETA) Install PWA Studio (requires NodeJS and Yarn to be installed on the host machine). Pass in your base site domain, otherwise the default `master-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud` will be used. Ex: `bin/setup-pwa-studio magento.test`.
-- `bin/setup-pwa-studio-sampledata`: This script makes it easier to install Venia sample data. Pass in your base site domain, otherwise the default `master-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud` will be used. Ex: `bin/setup-pwa-studio-sampledata magento.test`.
+- `bin/setup-pwa-studio`: (BETA) Install PWA Studio (requires NodeJS and Yarn to be installed on the host machine). Pass in your base site domain, otherwise the default `aws-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud` will be used. Ex: `bin/setup-pwa-studio magento.test`.
+- `bin/setup-pwa-studio-sampledata`: This script makes it easier to install Venia sample data. Pass in your base site domain, otherwise the default `aws-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud` will be used. Ex: `bin/setup-pwa-studio-sampledata magento.test`.
 - `bin/setup-ssl`: Generate an SSL certificate for one or more domains. Ex. `bin/setup-ssl magento.test foo.test`
 - `bin/setup-ssl-ca`: Generate a certificate authority and copy it to the host.
 - `bin/spx`: Disable or enable output compression to enable or disbale SPX. Accepts params `disable` (default) or `enable`. Ex. `bin/spx enable`
@@ -451,13 +451,13 @@ PhpMyAdmin is built into the `compose.dev.yaml` file. Simply open `http://localh
 
 Install and enable the PHP Debug extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
-Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/master/compose/.vscode/launch.json) file.
+Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/aws/compose/.vscode/launch.json) file.
 
 ### Xdebug & VS Code in a WSL2 environment
 
 Install and enable the PHP Debug extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
-Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/master/compose/.vscode/launch.json) file.
+Otherwise, this project now automatically sets up Xdebug support with VS Code. If you wish to set this up manually, please see the [`.vscode/launch.json`](https://github.com/itnavigate/docker-magento/blame/aws/compose/.vscode/launch.json) file.
 
 1. In VS Code, make sure that it's running in a WSL window, rather than in the default window.
 2. Install the [`PHP Debug`](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) extension on VS Code.
@@ -731,7 +731,7 @@ Upon saving this file, we will see the Grunt watcher detect the changes, and you
 
 ### PHP-SPX
 
-The images also have additional profiler-tracers built-in to the <a href="https://github.com/NoiseByNorthwest/php-spx/tree/master#web-ui" target="_blank">Web UI.</a>
+The images also have additional profiler-tracers built-in to the <a href="https://github.com/NoiseByNorthwest/php-spx/tree/aws#web-ui" target="_blank">Web UI.</a>
 
 To access the control panel, just open the following URL: `https://magento.test/?SPX_UI_URI=/`
 
