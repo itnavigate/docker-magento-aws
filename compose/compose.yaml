@@ -10,6 +10,13 @@
 ## 172.17.0.1 in this file with the result of:
 ## docker network inspect bridge --format='{{(index .IPAM.Config 0).Gateway}}'
 
+name: magento
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}
+    external: true
+
 services:
   app:
     image: markoshust/magento-nginx:1.24-0
