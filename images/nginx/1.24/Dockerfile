@@ -1,5 +1,5 @@
 FROM nginx:1.24-alpine
-MAINTAINER Mark Shust <mark@shust.com>
+LABEL MAINTAINER="Colin Manning <Colin@ITNavigate.com.au>"
 
 ARG APP_ID=1000
 
@@ -28,7 +28,7 @@ COPY ./conf/default.conf /etc/nginx/conf.d/
 RUN mkdir -p /etc/nginx/html /var/www/html \
   && chown -R app:app /etc/nginx /var/www /var/cache/nginx /var/run/nginx.pid /sock
 
-EXPOSE 8443
+EXPOSE 443
 
 USER app:app
 
