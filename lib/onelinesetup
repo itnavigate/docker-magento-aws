@@ -7,6 +7,9 @@ EDITION=${3:-community}
 
 curl -s https://raw.githubusercontent.com/itnavigate/docker-magento/aws/lib/template | bash
 
+# Set FQDN for Traefik
+echo "MAGENTO_HOST_URL=${DOMAIN}" > .env
+
 # &&'s are used below otherwise onelinesetup script fails/errors after bin/download
 bin/download "${VERSION}" "${EDITION}" \
   && bin/setup "${DOMAIN}"
